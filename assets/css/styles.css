@@ -2,10 +2,11 @@
 # General
 ----------------------------*/
 :root {  
-    --link-color: rgb(228, 156, 0);
+    --link-color: rgb(63, 58, 47);
     --link-hover-color: white;
 
     --text-color: rgb(3, 1, 27);
+    --text-color-2: rgb(209, 139, 10);
     --text-color-b: rgb(255, 255, 255);
     --text-highlight: rgb(21, 56, 123);
 
@@ -56,13 +57,25 @@ a:hover {
 /*--------------------------
 # Home
 ----------------------------*/
-.homepage-img {
-    background-image: url("../img/cielomaria.png");
-    height: 100vh;
-    background-position: center left;
+.homepage {
+    width: 100%;
+    max-height: 100vh;
+
+    background-image: url("../img/cielo.jpg");
+    background-position: 0% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.homepage-img {
+    /*width: 80%;*/
+    height: 90%;
+    object-fit: cover;
+    object-position: 0% 0%;
 }
 .homepage-txt {
     color: var(--text-color-b);
@@ -82,21 +95,78 @@ a:hover {
 }
 .homepage-subt {
     font-size: 2rem;
-}
-.homepage-resp {
-    font-size: 1.6rem;
     font-style: italic;
+}
+#navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    width: 100%;
+    background-color: rgba(194, 194, 194, 0.5);
+
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+}
+.navlink{
+    float: left;
+    display: block;
+    text-align: center;
+
+    font-size:1.4rem;
+    padding: 0.75rem 0.5rem;
 }
 /*--------------------------
 # Footer
 ----------------------------*/
-footer
-{
+footer {
     background-color: var(--footer-bg);
 
-    height: 10%;
+    height: 12%;
     color: var(--footer-text);
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Landscape tablets, 768px and up */
+@media only screen and (min-width: 768px) {
+    .homepage-img {
+        height: 85%;
+    }
+    .homepage-subt {
+        font-size: 2.5rem;
+    }
+    .navlink{
+        font-size:2rem;
+        padding: 2.25rem 1.5rem;
+    }
+    footer {
+        height: 14%;
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* Large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .homepage-img {
+        height: 80%;
+    }
+    .homepage-title {
+        font-size: 4.2rem;
+    }
+    .homepage-subt {
+        font-size: 3rem;
+    }
+    .navlink{
+        font-size:2.25rem;
+    }
+    footer {
+        height: 18%;
+        font-size: 1.6rem;
+        padding-bottom: 2rem;
+    }
 }

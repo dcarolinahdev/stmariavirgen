@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="./assets/css/styles.css">
@@ -13,14 +14,22 @@
 
 <!-- Header / Home-->
 <header id="home">
-  <div class="page homepage-img">
+  <div class="page homepage">
+    <img class="homepage-img" src="./assets/img/Maria.png" alt="">
     <div class="homepage-txt">
-        <p class="homepage-title">María</p>
-        <p class="homepage-subt">Madre de la misericordia</p>
-        <p class="homepage-resp">Ruega por nosotros</p>
+        <p id="homepage-title" class="homepage-title"></p>
+        <p id="homepage-subt" class="homepage-subt"></p>
     </div>
   </div>
 </header>
+
+<!-- Navbar (sticky bottom) -->
+<div id="navbar">
+    <a href="#home" class="navlink">Home</a>
+    <a href="#section1" class="navlink">Calendario</a>
+    <a href="#section2" class="navlink">Mensajes</a>
+    <a href="#section3" class="navlink">Oraciones</a>
+</div>
 
 <!-- Footer -->
 <footer class="">
@@ -28,5 +37,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="./assets/js/scripts.js"></script>
+
 </body>
 </html>
