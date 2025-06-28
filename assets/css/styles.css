@@ -13,8 +13,10 @@
     --footer-bg: rgb(28, 81, 220);
     --footer-text: white;
 
-    --w-circle: 4px;
+    --w-circle: 3px;
     --r-event: 8px;
+    --l-timeline: 5px;
+    --x-timeline: 10px;
   
     --blue-dark: #15387b;
     --blue-ligth: #5871b1;
@@ -139,8 +141,9 @@ a:hover {
     font-weight: bold;
     font-size: 2.8rem;
 }
+/* timeline */
 .timeline {
-    width: 75%;
+    width: 80%;
     padding-top: 3rem;
     position: relative;
     max-width: 1200px;
@@ -152,30 +155,46 @@ a:hover {
 .timeline::after {
     content: '';
     position: absolute;
-    width: 5px;
+    width: var(--l-timeline);
     background-color: white;
     top: 0;
     bottom: 0;
-    left: calc(50% - 2.5px);
+    left: calc(50% - (var(--l-timeline)*0.5));
 }
+/* events */
 .event {
     padding: 5px 10px;
     position: relative;
-    background-color: rgb(167, 167, 230);
     width: 50%;
     z-index: 2;
     margin-bottom: 2px;
+    color: black;
 }
+.event p {
+    font-weight: bold;
+}
+.solemnity {
+    background-color: rgb(229, 230, 167);
+}
+.memoryf {
+    background-color: rgb(167, 167, 230);
+}
+.party {
+    background-color: rgb(200, 167, 230);
+}
+/* circles */
 .event::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -15px;
     background-color: white;
-    top: 15px;
     border-radius: 50%;
     z-index: 1;
+
+    width: 20px;
+    height: 20px;
+    
+    right: -10px;
+    top: 33%;
 }
 .solemnity::after {
     border: var(--w-circle) solid var(--text-color-2);
@@ -193,9 +212,11 @@ a:hover {
 }
 .right {
     left: 50%;
-
     border-top-right-radius: var(--r-event);
     border-bottom-right-radius: var(--r-event);
+}
+.right::after {
+    left: -10px;
 }
 /*--------------------------
 # Footer
