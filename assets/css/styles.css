@@ -12,10 +12,13 @@
 
     --footer-bg: rgb(28, 81, 220);
     --footer-text: white;
+
+    --w-circle: 4px;
+    --r-event: 8px;
   
     --blue-dark: #15387b;
     --blue-ligth: #5871b1;
-    --gold: #f1c40f;
+    --gold: rgb(209, 139, 10);
     --gray-dark: rgba(105, 105, 105, 0.95);
     --gray-light: rgba(105, 105, 105, 0.4);
 }
@@ -54,11 +57,15 @@ a:hover {
 .page {
     height: 100vh;
 }
+.page,
+.pagexl {
+    background-color: var(--blue-ligth);
+}
 /*--------------------------
 # Home
 ----------------------------*/
 .homepage {
-    width: 100%;
+    /*width: 100vw;*/
     max-height: 100vh;
 
     background-image: url("../img/cielo.jpg");
@@ -72,7 +79,6 @@ a:hover {
     align-items: center;
 }
 .homepage-img {
-    /*width: 80%;*/
     height: 90%;
     object-fit: cover;
     object-position: 0% 0%;
@@ -116,6 +122,80 @@ a:hover {
 
     font-size:1.4rem;
     padding: 0.75rem 0.5rem;
+}
+/*--------------------------
+# Calendar
+----------------------------*/
+.calendarpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--text-color-b);
+    padding: 3rem 0rem;
+}
+.calendarpage h1 {
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+.timeline {
+    width: 75%;
+    padding-top: 3rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.timeline p {
+    margin-bottom: 0;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 2.5px);
+}
+.event {
+    padding: 5px 10px;
+    position: relative;
+    background-color: rgb(167, 167, 230);
+    width: 50%;
+    z-index: 2;
+    margin-bottom: 2px;
+}
+.event::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -15px;
+    background-color: white;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.solemnity::after {
+    border: var(--w-circle) solid var(--text-color-2);
+}
+.memoryf::after {
+    border: var(--w-circle) solid var(--blue-dark);
+}
+.party::after {
+    border: var(--w-circle) solid rgb(67, 2, 172);
+}
+.left {
+    left: 0;
+    border-top-left-radius: var(--r-event);
+    border-bottom-left-radius: var(--r-event);
+}
+.right {
+    left: 50%;
+
+    border-top-right-radius: var(--r-event);
+    border-bottom-right-radius: var(--r-event);
 }
 /*--------------------------
 # Footer
