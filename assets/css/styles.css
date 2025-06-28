@@ -13,10 +13,10 @@
     --footer-bg: rgb(28, 81, 220);
     --footer-text: white;
 
-    --w-circle: 3px;
+    --b-circle: 3px;
+    --r-circle: 10px;
     --r-event: 8px;
     --l-timeline: 5px;
-    --x-timeline: 10px;
   
     --blue-dark: #15387b;
     --blue-ligth: #5871b1;
@@ -141,10 +141,13 @@ a:hover {
     font-weight: bold;
     font-size: 2.8rem;
 }
+.calendarpage h2 {
+    margin-bottom: 2rem;
+}
 /* timeline */
 .timeline {
     width: 80%;
-    padding-top: 3rem;
+    padding: 1.5rem 0rem;
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -163,15 +166,24 @@ a:hover {
 }
 /* events */
 .event {
-    padding: 5px 10px;
     position: relative;
-    width: 50%;
-    z-index: 2;
+    width: calc(50% - (var(--l-timeline)*0.5));
     margin-bottom: 2px;
     color: black;
 }
 .event p {
     font-weight: bold;
+}
+.left {
+    padding: 5px 12px 5px 10px;
+    border-top-left-radius: var(--r-event);
+    border-bottom-left-radius: var(--r-event);
+}
+.right {
+    padding: 5px 10px 5px 12px;
+    left: calc(50% + (var(--l-timeline)*0.5));
+    border-top-right-radius: var(--r-event);
+    border-bottom-right-radius: var(--r-event);
 }
 .solemnity {
     background-color: rgb(229, 230, 167);
@@ -190,33 +202,23 @@ a:hover {
     border-radius: 50%;
     z-index: 1;
 
-    width: 20px;
-    height: 20px;
+    width: calc(2 * var(--r-circle));
+    height: calc(2 * var(--r-circle));
     
-    right: -10px;
+    right: calc(0px - var(--r-circle) - (var(--l-timeline)*0.5));
     top: 33%;
 }
+.right::after {
+    left: calc(0px - var(--r-circle) - (var(--l-timeline)*0.5));
+}
 .solemnity::after {
-    border: var(--w-circle) solid var(--text-color-2);
+    border: var(--b-circle) solid var(--text-color-2);
 }
 .memoryf::after {
-    border: var(--w-circle) solid var(--blue-dark);
+    border: var(--b-circle) solid var(--blue-dark);
 }
 .party::after {
-    border: var(--w-circle) solid rgb(67, 2, 172);
-}
-.left {
-    left: 0;
-    border-top-left-radius: var(--r-event);
-    border-bottom-left-radius: var(--r-event);
-}
-.right {
-    left: 50%;
-    border-top-right-radius: var(--r-event);
-    border-bottom-right-radius: var(--r-event);
-}
-.right::after {
-    left: -10px;
+    border: var(--b-circle) solid rgb(67, 2, 172);
 }
 /*--------------------------
 # Footer
