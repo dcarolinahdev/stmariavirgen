@@ -12,10 +12,15 @@
 
     --footer-bg: rgb(28, 81, 220);
     --footer-text: white;
+
+    --b-circle: 3px;
+    --r-circle: 10px;
+    --r-event: 8px;
+    --l-timeline: 5px;
   
     --blue-dark: #15387b;
     --blue-ligth: #5871b1;
-    --gold: #f1c40f;
+    --gold: rgb(209, 139, 10);
     --gray-dark: rgba(105, 105, 105, 0.95);
     --gray-light: rgba(105, 105, 105, 0.4);
 }
@@ -54,11 +59,15 @@ a:hover {
 .page {
     height: 100vh;
 }
+.page,
+.pagexl {
+    background-color: var(--blue-ligth);
+}
 /*--------------------------
 # Home
 ----------------------------*/
 .homepage {
-    width: 100%;
+    /*width: 100vw;*/
     max-height: 100vh;
 
     background-image: url("../img/cielo.jpg");
@@ -72,7 +81,6 @@ a:hover {
     align-items: center;
 }
 .homepage-img {
-    /*width: 80%;*/
     height: 90%;
     object-fit: cover;
     object-position: 0% 0%;
@@ -103,11 +111,12 @@ a:hover {
     justify-content: center;
 
     width: 100%;
-    background-color: rgba(194, 194, 194, 0.5);
+    background-color: rgba(194, 194, 194, 0.8);
 
     overflow: hidden;
     position: fixed;
     bottom: 0;
+    z-index: 2;
 }
 .navlink{
     float: left;
@@ -116,6 +125,101 @@ a:hover {
 
     font-size:1.4rem;
     padding: 0.75rem 0.5rem;
+}
+/*--------------------------
+# Calendar
+----------------------------*/
+.calendarpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--text-color-b);
+    padding: 3rem 0rem;
+}
+.calendarpage h1 {
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+.calendarpage h2 {
+    margin-bottom: 2rem;
+}
+/* timeline */
+.timeline {
+    width: 80%;
+    padding: 1.5rem 0rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.timeline p {
+    margin-bottom: 0;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: var(--l-timeline);
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - (var(--l-timeline)*0.5));
+}
+/* events */
+.event {
+    position: relative;
+    width: calc(50% - (var(--l-timeline)*0.5));
+    margin-bottom: 2px;
+    color: black;
+}
+.event p {
+    font-weight: bold;
+}
+.left {
+    padding: 5px 12px 5px 10px;
+    border-top-left-radius: var(--r-event);
+    border-bottom-left-radius: var(--r-event);
+}
+.right {
+    padding: 5px 10px 5px 12px;
+    left: calc(50% + (var(--l-timeline)*0.5));
+    border-top-right-radius: var(--r-event);
+    border-bottom-right-radius: var(--r-event);
+}
+.solemnity {
+    background-color: rgb(229, 230, 167);
+}
+.memoryf {
+    background-color: rgb(167, 167, 230);
+}
+.party {
+    background-color: rgb(200, 167, 230);
+}
+/* circles */
+.event::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+
+    width: calc(2 * var(--r-circle));
+    height: calc(2 * var(--r-circle));
+    
+    right: calc(0px - var(--r-circle) - (var(--l-timeline)*0.5));
+    top: 33%;
+}
+.right::after {
+    left: calc(0px - var(--r-circle) - (var(--l-timeline)*0.5));
+}
+.solemnity::after {
+    border: var(--b-circle) solid var(--text-color-2);
+}
+.memoryf::after {
+    border: var(--b-circle) solid var(--blue-dark);
+}
+.party::after {
+    border: var(--b-circle) solid rgb(67, 2, 172);
 }
 /*--------------------------
 # Footer
